@@ -13,7 +13,6 @@ class MainContent extends React.Component {
   }
 
   handleChange(id) {
-    console.log("changed", id);
     //reverts back to default, needs checking
     this.setState((prevState) => {
       const updatedTodos = prevState.todos.map((todo) => {
