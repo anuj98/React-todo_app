@@ -13,16 +13,14 @@ class MainContent extends React.Component {
   }
 
   handleChange(id) {
-    //reverts back to default, needs checking
     this.setState((prevState) => {
       const updatedTodos = prevState.todos.map((todo) => {
         if (todo.id === id) {
           todo.completed = !todo.completed;
-          console.log(id, todo.completed);
+          todo.counter = todo.counter + 1;
         }
         return todo;
       });
-
       return {
         todos: updatedTodos
       };
@@ -30,18 +28,11 @@ class MainContent extends React.Component {
   }
 
   render() {
-    const todoComponents = this.state.todos.map((item) => (
-      <TodoItem key={item.id} value={item} handleChange={this.handleChange} />
+    const todoItems = this.state.todos.map((item) => (
+      <TodoItem key={item.id} item={item} handleChange={this.handleChange} />
     ));
 
-    return (
-      <main>
-        <div className="todo-list">
-          <p>Today's work items:</p>
-          {todoComponents}
-        </div>
-      </main>
-    );
+    return <div className="todo-list">{todoItems}</div>;
   }
 }
 

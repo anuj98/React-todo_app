@@ -5,10 +5,10 @@ function TodoItem(props) {
     <div className="todo-item">
       <input
         type="checkbox"
-        checked={props.value.completed}
-        onChange={() => props.handleChange(props.value.id)}
+        checked={props.item.completed}
+        onChange={() => props.handleChange(props.item.id)}
       />
-      <p>{props.value.text}</p>
+      <p>{props.item.text + " " + props.item.counter}</p>
     </div>
   );
 }
